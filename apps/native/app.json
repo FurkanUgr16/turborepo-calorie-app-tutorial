@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "scheme": "calorie-ai-app",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "calorie-ai-app",
+    "slug": "calorie-ai-app",
+    "plugins": ["expo-font"],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
