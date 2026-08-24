@@ -1,8 +1,9 @@
 import "@/global.css";
-import { Stack } from "expo-router";
+import { Stack } from "expo-router/build";
 import { HeroUINativeProvider } from "heroui-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { AppThemeProvider } from "@/contexts/app-theme-context";
 
@@ -12,9 +13,15 @@ export const unstable_settings = {
 
 function StackLayout() {
   return (
-    <Stack screenOptions={{}}>
-      <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-      <Stack.Screen name="modal" options={{ title: "Modal", presentation: "modal" }} />
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="onboarding-one" />
+      <Stack.Screen name="onboarding-two" />
+      <Stack.Screen name="onboarding-three" />
+      <Stack.Screen name="(drawer)" />
+      <Stack.Screen
+        name="modal"
+        options={{ title: "Modal", presentation: "modal" }}
+      />
     </Stack>
   );
 }
@@ -23,11 +30,28 @@ export default function Layout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <KeyboardProvider>
-        <AppThemeProvider>
-          <HeroUINativeProvider>
-            <StackLayout />
-          </HeroUINativeProvider>
-        </AppThemeProvider>
+        <SafeAreaProvider>
+          <AppThemeProvider>
+            <HeroUINativeProvider
+              config={{
+                toast: {
+                  defaultProps: {
+                    placement: "top",
+                  },
+                  insets: {
+                    top: 12,
+                    bottom: 12,
+                    left: 12,
+                    right: 12,
+                  },
+                  maxVisibleToasts: 2,
+                },
+              }}
+            >
+              <StackLayout />
+            </HeroUINativeProvider>
+          </AppThemeProvider>
+        </SafeAreaProvider>
       </KeyboardProvider>
     </GestureHandlerRootView>
   );

@@ -3,3 +3,76 @@
 @import "heroui-native/styles";
 
 @source './node_modules/heroui-native/lib';
+
+@theme {
+    --color-primary: #006a68;
+    --color-primary-light: #2ab3b1;
+    --color-accent: #7cf5f3;
+
+    /* Neutrals */
+    --color-neutral-50: #f8f9fa;
+    --color-neutral-100: #f3f4f6;
+    --color-neutral-200: #e5e7eb;
+    --color-neutral-300: #d1d5db;
+    --color-neutral-400: #9ca3af;
+    --color-neutral-500: #6b7280;
+    --color-neutral-600: #4b5563;
+    --color-neutral-700: #374151;
+    --color-neutral-800: #1f2937;
+    --color-neutral-900: #111827;
+
+    /* Typography */
+    --font-inter:
+        Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei,
+        Arial, Helvetica, sans-serif;
+    --font-size-heading-1: 36px;
+    --font-size-heading-2: 30px;
+    --font-size-heading-3: 24px;
+    --font-size-body: 16px;
+    --font-size-small: 14px;
+    --font-size-xs: 12px;
+
+    /* Spacing */
+    --spacing-horizontal-screen: 24px;
+    --spacing-vertical-section: 40px;
+}
+
+/* Override HeroUI theme variables for light/dark */
+@layer theme {
+    @variant light {
+        --background: #f8f9fa;
+        --foreground: #191c1d;
+        --muted: #6b7280;
+        --heading: #191c1d;
+        --surface: #ffffff;
+        --border: #e5e7eb;
+        --input: #f3f4f5;
+        --input-border: #bcc9c8;
+        --input-placeholder: #3d4949;
+    }
+
+    @variant dark {
+        --background: #0d0f12;
+        --foreground: #f3f4f6;
+        --muted: #9ca3af;
+        --heading: #f3f4f6;
+        --surface: #1a1d21;
+        --border: #1a1d21;
+        --input: #1a1d21;
+        --input-border: #2f3338;
+        --input-placeholder: #9ca3af;
+    }
+}
+
+/* Register custom semantic colors for Tailwind */
+@theme inline static {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --color-heading: var(--heading);
+    --color-surface: var(--surface);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-input-border: var(--input-border);
+    --color-input-placeholder: var(--input-placeholder);
+}
