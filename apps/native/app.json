@@ -8,7 +8,10 @@
     },
     "name": "calorie-ai-app",
     "slug": "calorie-ai-app",
-    "plugins": ["expo-font"],
+    "plugins": [
+      "expo-font",
+      "expo-router"
+    ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true

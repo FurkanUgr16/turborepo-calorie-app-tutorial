@@ -14,7 +14,12 @@ export function createAuth() {
 
       schema: schema,
     }),
-    trustedOrigins: [env.CORS_ORIGIN, "calorie-ai-app://", "exp://", "http://localhost:8081"],
+    trustedOrigins: [
+      env.CORS_ORIGIN,
+      "calorie-ai-app://",
+      "exp://*",
+      "http://localhost:8081",
+    ],
     emailAndPassword: {
       enabled: true,
     },

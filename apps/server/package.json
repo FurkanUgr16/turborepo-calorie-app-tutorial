@@ -12,13 +12,13 @@
     "@calorie-ai-app/db": "workspace:*",
     "@calorie-ai-app/env": "workspace:*",
     "better-auth": "catalog:",
-    "dotenv": "catalog:",
-    "hono": "^4.12.32",
-    "zod": "catalog:"
+    "dotenv": "^17.4.2",
+    "hono": "^4.13.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@calorie-ai-app/config": "workspace:*",
-    "@cloudflare/workers-types": "catalog:",
+    "@cloudflare/workers-types": "^5.20260821.1",
     "@types/node": "^22.20.1",
     "tsdown": "^0.22.14",
     "typescript": "^6.0.3"
