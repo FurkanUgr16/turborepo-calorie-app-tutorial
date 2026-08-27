@@ -1,26 +1,12 @@
-import { createAuth } from "@calorie-ai-app/auth";
-import { env } from "@calorie-ai-app/env/server";
 import { Hono } from "hono";
-import { cors } from "hono/cors";
+import { registerMiddleware } from "./middleware";
+import { registerRoutes } from "./routes";
+
 import { logger } from "hono/logger";
 
-const app = new Hono();
+const app = new Hono().use(logger());
 
-app.use(logger());
-app.use(
-  "/*",
-  cors({
-    origin: env.CORS_ORIGIN,
-    allowMethods: ["GET", "POST", "OPTIONS"],
-    allowHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  }),
-);
-
-app.on(["POST", "GET"], "/api/auth/*", (c) => createAuth().handler(c.req.raw));
-
-app.get("/", (c) => {
-  return c.text("OK");
-});
+registerMiddleware(app);
+registerRoutes(app);
 
 export default app;
