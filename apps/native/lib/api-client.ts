@@ -20,10 +20,13 @@ export const getAuthHeaders = async () => {
 export const getProfile = async () => {
   const headers = await getAuthHeaders();
 
-  const response = await fetch(`${env.EXPO_PUBLIC_SERVER_URL}/profile`, {
-    method: "GET",
-    headers,
-  });
+  const response = await fetch(
+    `${env.EXPO_PUBLIC_SERVER_URL}/api/user/profile`,
+    {
+      method: "GET",
+      headers,
+    },
+  );
 
   if (!response.ok) {
     throw new Error("Failed to fetch profile");
@@ -40,11 +43,14 @@ export const saveProfile = async (data: {
 }) => {
   const headers = await getAuthHeaders();
 
-  const response = await fetch(`${env.EXPO_PUBLIC_SERVER_URL}/profile`, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    `${env.EXPO_PUBLIC_SERVER_URL}/api/user/profile`,
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify(data),
+    },
+  );
 
   if (!response.ok) {
     throw new Error("Failed to save profile");

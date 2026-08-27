@@ -3,7 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import { getProfile, saveProfile } from "@/lib/api-client";
 import type { ProfileFormValues } from "@calorie-ai-app/auth/schemas/index";
 
-export function useUser() {
+export const useUser = () => {
   const { data: session } = authClient.useSession();
 
   return useQuery({
@@ -14,9 +14,9 @@ export function useUser() {
     },
     enabled: !!session?.user,
   });
-}
+};
 
-export function useUpdateUser() {
+export const useUpdateUser = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -27,4 +27,4 @@ export function useUpdateUser() {
       queryClient.invalidateQueries({ queryKey: ["profile"] });
     },
   });
-}
+};
