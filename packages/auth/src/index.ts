@@ -7,7 +7,6 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 
 export function createAuth() {
   const db = createDb();
-
   return betterAuth({
     database: drizzleAdapter(db, {
       provider: "sqlite",
@@ -48,3 +47,5 @@ export function createAuth() {
     plugins: [expo()],
   });
 }
+
+export const auth = createAuth();
