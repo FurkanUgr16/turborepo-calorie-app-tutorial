@@ -1,6 +1,6 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { useRouter } from "expo-router";
-import { useUpdateUser } from "./hooks/use-user";
+import { useUpdateUser } from "@/hooks/use-user";
 import { Controller, useForm } from "react-hook-form";
 import { ProfileFormValues, profileSchema } from "@calorie-ai-app/auth/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";

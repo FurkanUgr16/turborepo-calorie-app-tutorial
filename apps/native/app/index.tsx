@@ -1,10 +1,10 @@
 import { View, ActivityIndicator } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Redirect } from "expo-router";
 import { authClient } from "@/lib/auth-client";
 import { getProfile } from "@/lib/api-client";
 
-const index = () => {
+const Page = () => {
   const session = authClient.useSession();
   const [profileStatus, setProfileStatus] = useState<
     "loading" | "has-profile" | "no-profile" | "no-session"
@@ -69,4 +69,4 @@ const index = () => {
   return <Redirect href="/(tabs)" />;
 };
 
-export default index;
+export default Page;
