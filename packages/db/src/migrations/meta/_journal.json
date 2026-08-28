@@ -22,6 +22,13 @@
       "when": 1787797289686,
       "tag": "0002_nappy_pretty_boy",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1787849935284,
+      "tag": "0003_steady_gamora",
+      "breakpoints": true
     }
   ]
 }
