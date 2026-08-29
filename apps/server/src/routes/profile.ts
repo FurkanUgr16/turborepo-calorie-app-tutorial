@@ -8,7 +8,7 @@ const profileRouter = new Hono<AuthEnv>()
     const parserProfile = profileSchema.safeParse(await c.req.json());
 
     if (!parserProfile.success) {
-      return c.json(parserProfile.error, 400);
+      return c.json({ error: parserProfile.error }, 400);
     }
 
     await upsertUserProfile(c.get("user").id, parserProfile.data);
@@ -16,7 +16,12 @@ const profileRouter = new Hono<AuthEnv>()
   })
   .get("/user/profile", requireAuth, async (c) => {
     const profile = await getUserProfile(c.get("user").id);
-    return c.json(profile);
+
+    if (!profile) {
+      return c.json({ error: "Profile not found" }, 404);
+    }
+
+    return c.json({ profile });
   });
 
 export default profileRouter;

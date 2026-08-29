@@ -31,10 +31,10 @@ export const getProfile = async () => {
   );
 
   if (!response.ok) {
-    throw new Error("Failed to fetch profile");
+    throw new Error("Failed to get profile");
   }
 
-  return await response.json();
+  return response.json();
 };
 
 export const saveProfile = async (data: {
@@ -58,7 +58,7 @@ export const saveProfile = async (data: {
     throw new Error("Failed to save profile");
   }
 
-  return await response.json();
+  return response.json();
 };
 
 //meals
