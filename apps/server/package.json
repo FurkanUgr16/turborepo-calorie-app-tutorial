@@ -8,9 +8,11 @@
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server"
   },
   "dependencies": {
+    "@ai-sdk/google": "^4.0.57",
     "@calorie-ai-app/auth": "workspace:*",
     "@calorie-ai-app/db": "workspace:*",
     "@calorie-ai-app/env": "workspace:*",
+    "ai": "^7.0.84",
     "better-auth": "catalog:",
     "dotenv": "^17.4.2",
     "hono": "^4.13.3",

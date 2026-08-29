@@ -21,6 +21,7 @@ export const server = Cloudflare.Worker("server", {
     CORS_ORIGIN: Config.string("CORS_ORIGIN"),
     BETTER_AUTH_SECRET: Config.redacted("BETTER_AUTH_SECRET"),
     BETTER_AUTH_URL: Cloudflare.Worker.URL,
+    GOOGLE_GENERATIVE_AI_API_KEY: Config.string("GOOGLE_GENERATIVE_AI_API_KEY"),
   },
   dev: {
     port: 3000,
